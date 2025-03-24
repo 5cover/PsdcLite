@@ -13,11 +13,11 @@ public readonly record struct FixedRange(int Start, int End)
 
 interface Ast
 {
-    sealed record Algorithm(ImmutableArray<Decl> Body);
+    readonly record struct Algorithm(ImmutableArray<Decl> Body);
 
     interface Decl : Ast
     {
-        sealed record Program(FixedRange Range, string Title, ImmutableArray<Stmt> Body) : Decl
+        readonly record struct Program(FixedRange Range, string Title, ImmutableArray<Stmt> Body) : Decl
         {
         }
     }
@@ -25,23 +25,23 @@ interface Ast
     interface Stmt : Ast
     {
         FixedRange Range { get; }
-        sealed record Assignment(FixedRange Range, string Lhs, Expr Rhs) : Stmt
+        readonly record struct Assignment(FixedRange Range, string Lhs, Expr Rhs) : Stmt
         {
         }
-        sealed record Print(FixedRange Range, Expr Arg) : Stmt
+        readonly record struct Print(FixedRange Range, Expr Arg) : Stmt
         {
         }
     }
     interface Expr : Ast
     {
         FixedRange Range { get; }
-        sealed record Variable(FixedRange Range, string Name) : Expr
+        readonly record struct Variable(FixedRange Range, string Name) : Expr
         {
         }
-        sealed record LiteralString(FixedRange Range, string Value) : Expr
+        readonly record struct LiteralString(FixedRange Range, string Value) : Expr
         {
         }
-        sealed record LiteralNumber(FixedRange Range, string Value) : Expr
+        readonly record struct LiteralNumber(FixedRange Range, string Value) : Expr
         {
         }
     }

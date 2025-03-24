@@ -8,7 +8,7 @@
         "name": "Launch psdc-lite",
         "type": "coreclr",
         "request": "launch",
-        "program": "${workspaceFolder}/bin/Debug/net8.0/PsdcLite",
+        "program": "${workspaceFolder}/PsdcLite/bin/Debug/net8.0/psdc-lite",
         "args": [],
         "cwd": "${workspaceFolder}",
         "stopAtEntry": false,

@@ -2,13 +2,13 @@ using System.Diagnostics;
 
 namespace Scover.PsdcLite;
 
-sealed record Token(TokenType Type, int Start, string? Value = null)
+readonly record struct Token(TokenType Type, int Start, string? Value = null)
 {
-    public int Length => Type switch
-    {
+    public int Length => Type switch {
+        TokenType.Eof => 0,
+
         TokenType.Begin => 5,
         TokenType.End => 3,
-        TokenType.Eof => 0,
         TokenType.Ident => Value.NotNull().Length,
         TokenType.Is => 5,
         TokenType.LParen => 1,
@@ -25,9 +25,10 @@ sealed record Token(TokenType Type, int Start, string? Value = null)
 
 enum TokenType
 {
+    Eof,
+
     Begin,
     End,
-    Eof,
     Ident,
     Is,
     LParen,

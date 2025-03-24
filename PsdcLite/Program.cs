@@ -11,11 +11,19 @@ class Program
         Lexer l = new(input);
         var tokens = l.Lex();
 
+        var ast = Parser.Parse(tokens);
+
+        // Report errors
         Queue<Token> errorTokens = new();
+        foreach (var e in ast.Errors) {
+            var t = tokens[e.Index];
+            errorTokens.Enqueue(t);
+            var pos = input.GetPositionAt(t.Start);
+            Console.Error.WriteLine($"syntax error at {pos}: expected {string.Join(", then ",
+                e.Expected.Select(e => string.Join(" or ", e)))} for {e.Subject}, found {t.Type}");
+        }
 
-        Parser p = new(tokens, ReportError);
-        var ast = p.Parse();
-
+        // Print input code with erroneous tokens in red.
         int resetAt = -1;
         for (int i = 0; i < input.Length; i++) {
             if (i == resetAt) {
@@ -28,18 +36,10 @@ class Program
             Console.Write(input[i]);
         }
 
-        if (ast is not null) {
+        // Print AST representation
+        if (ast.HasValue) {
             Console.WriteLine();
-            PrettyPrint(ast);
-        }
-
-        void ReportError(ParseError e)
-        {
-            var t = tokens[e.Index];
-            errorTokens.Enqueue(t);
-            var pos = input.GetPositionAt(t.Start);
-            Console.Error.WriteLine($"syntax error at {pos}: expected {string.Join(", then ",
-                e.Expected.Select(e => string.Join(" or ", e)))} for {e.Subject}, found {t.Type}");
+            PrettyPrint(ast.Value);
         }
     }
 
