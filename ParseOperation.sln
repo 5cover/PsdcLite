@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdcLite", "PsdcLite\PsdcLite.csproj", "{89F97AD4-765F-91C8-0C6F-900311A9D357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseOperation", "ParseOperation\ParseOperation.csproj", "{391019BC-B3F3-49BB-8DCF-3420D440D3B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89F97AD4-765F-91C8-0C6F-900311A9D357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F97AD4-765F-91C8-0C6F-900311A9D357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F97AD4-765F-91C8-0C6F-900311A9D357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F97AD4-765F-91C8-0C6F-900311A9D357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391019BC-B3F3-49BB-8DCF-3420D440D3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391019BC-B3F3-49BB-8DCF-3420D440D3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391019BC-B3F3-49BB-8DCF-3420D440D3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391019BC-B3F3-49BB-8DCF-3420D440D3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B9A19CC-7AE6-4E52-9B2E-1D173DDD5035}
+	EndGlobalSection
+EndGlobal

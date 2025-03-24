@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://github.com/5cover/ast-gen/raw/refs/heads/main/schemas/config.json
+target: csharp
+known_types:
+  - token
+root: ast
+product: readonly record struct $1
+union: interface $1
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/5cover/ast-gen/refs/heads/main/schemas/nodes.json
+algorithm:
+  body: decl*
+
+decl:
+  program:
+    title: token
+    stmts: stmt*
+
+stmt:
+  assignment:
+    lhs: token
+    rhs: expr
+  print:
+    arg: expr
+
+expr:
+  variable:
+    name: token
+  literal_string:
+    value: token
+  literal_number:
+    value: token

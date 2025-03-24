@@ -1,0 +1,15 @@
+programme c'est
+# Bonjour!
+début
+    nom := "Marie";
+    âge := 1;
+    ecrire("Bonjour !");
+    ecrire(nom);
+fin
+programme bonjour c'est début
+    nom := "Marie";
+    âge := 1;
+    ecrire("Bonjour !");
+    ecrire(nom);
+fin;
+
